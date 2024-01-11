@@ -1,0 +1,96 @@
+﻿<Window x:Class="MPTV1._1.MainPriemComission"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MPTV1._1"
+        mc:Ignorable="d"
+        Title="MainPriemComission"
+        Height="500" Width="800"
+        Background="White"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <Style TargetType="Expander">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Expander">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="#c0c0d0" BorderThickness="0" CornerRadius="0" Margin="0,0,0,5">
+                            <DockPanel>
+                                <ToggleButton x:Name="HeaderSite" FontFamily="Segoe UI" FontSize="15" Foreground="Black" Background="#c0c0d0" Padding="10" DockPanel.Dock="Top" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <DockPanel>
+                                        <TextBlock Text="{TemplateBinding Header}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    </DockPanel>
+                                </ToggleButton>
+                                <ContentPresenter x:Name="ExpandSite" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" DockPanel.Dock="Bottom" Margin="10,0,0,0" Visibility="Collapsed"/>
+                            </DockPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsExpanded" Value="True">
+                                <Setter TargetName="ExpandSite" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                <Setter Property="Background" Value="#FFE8E8E8"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Rectangle Width="Auto" Height="60" Fill="#7979A2" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+        <Button x:Name="Exite" Click="Exite_Click"  Content="Выход" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="8" Height="40" Width="90" Background="#2D2D44" Foreground="White" FontSize="16"/>
+
+        <StackPanel Orientation="Vertical" Margin="20, 70, 20 ,0">
+            <TextBlock Text="Направления" FontSize="40" Width="450" Height="50" HorizontalAlignment="Left" Margin="0, 25, 0, 0"/>
+            <ItemsControl ItemsSource="{Binding Directions}" Margin="0, 25, 0, 0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Expander Header="{Binding nameDir}" Expanded="Expander_Expanded">
+                            <Grid Height="100" Background="#F2F1F1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <DockPanel Grid.Column="0" Grid.Row="0">
+                                    <TextBlock Text="Проходной балл: " VerticalAlignment="Center" FontSize="18"/>
+                                    <TextBlock Text="" VerticalAlignment="Center" FontSize="18"/>
+                                </DockPanel>
+
+                                <DockPanel Grid.Column="0" Grid.Row="1">
+                                    <TextBlock  Grid.Column="0" Grid.Row="1" Text="Средний балл: " VerticalAlignment="Center" FontSize="18"/>
+                                    <TextBlock Text="" VerticalAlignment="Center" FontSize="18"/>
+                                </DockPanel>
+
+                                <DockPanel Grid.Column="1" Grid.Row="0">
+                                    <TextBlock Text="Бюджетные места: " VerticalAlignment="Center" FontSize="18"/>
+                                    <TextBlock Text="{Binding numbOfBudget}" VerticalAlignment="Center" FontSize="18"/>
+                                </DockPanel>
+
+                                <DockPanel Grid.Column="1" Grid.Row="1">
+                                    <TextBlock Text="Внебюджетные места: " VerticalAlignment="Center" FontSize="18"/>
+                                    <TextBlock Text="{Binding numbOfNotBudget}" VerticalAlignment="Center" FontSize="18"/>
+                                </DockPanel>
+
+                                <Button x:Name="goToDirection" Click="goToDirection_Click" Content="Абитуриенты" Grid.Column="2" VerticalAlignment="Center" Grid.RowSpan="2" Height="40" Width="110" Background="#2D2D44" Foreground="White" FontSize="16"/>
+                            </Grid>
+                        </Expander>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </Grid>
+</Window>

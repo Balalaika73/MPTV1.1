@@ -1,0 +1,271 @@
+﻿<Window x:Class="MPTV1._1.abApplication"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MPTV1._1"
+        mc:Ignorable="d"
+        Title="abApplication"
+        Height="700" Width="1200"
+        Background="White"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="#F2F2F2"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="IBeam"/>
+            <Setter Property="Foreground" Value="#828282"/>
+            <Setter Property="Padding" Value="7 3"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="400"/>
+            <Setter Property="FontWeight" Value="400"/>
+            <Setter Property="AllowDrop" Value="True"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="txtBorder"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="15"
+                                SnapsToDevicePixels="True">
+                            <Grid Margin="{TemplateBinding Padding}">
+                                <ScrollViewer x:Name="PART_ContentHost"
+                                              Focusable="False"
+                                              HorizontalScrollBarVisibility="Hidden"
+                                              VerticalScrollBarVisibility="Hidden"/>
+                                <Label x:Name="Watermark"
+                                       Content="{TemplateBinding Tag}"
+                                       FontWeight="{TemplateBinding FontWeight}"
+                                       VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       HorizontalContentAlignment="{TemplateBinding HorizontalAlignment}"
+                                       Visibility="Collapsed"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       Padding="{TemplateBinding Padding}"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Text" Value=""/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Visibility"
+                                        TargetName="Watermark"
+                                        Value="Visible"/>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="CheckBox" x:Key="RoundCheckBoxStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Круглый фон -->
+                            <Ellipse x:Name="EllipseBackground" Width="20" Height="20" Stroke="#2D2D44" StrokeThickness="2"/>
+
+                            <!-- Галка (если CheckBox выбран) -->
+                            <Path x:Name="CheckMark" Grid.Column="0" Stroke="#2D2D44" StrokeThickness="1.5" Data="M5,9 L7,11 L10,6" Stretch="Fill" Visibility="Collapsed"/>
+
+                            <!-- Текст CheckBox -->
+                            <ContentPresenter Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <!-- Изменение видимости галки при выборе/снятии выбора CheckBox -->
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed"/>
+                            </Trigger>
+                            <!-- Изменение цвета круга при наведении -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="EllipseBackground" Property="Stroke" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Rectangle Width="Auto" Height="60" Fill="#7979A2" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+
+        <Button BorderThickness="0" Click="BackButton_Click" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="40" Background="Transparent" Margin="20, 8 ,8 ,8">
+            <Image Source="Assets/back.png" Width="35" Height="35" />
+        </Button>
+        <Button x:Name="Exite" Click="Exite_Click"  Content="Выход" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="8, 8, 20,8" Height="40" Width="90" Background="#2D2D44" Foreground="White" FontSize="16"/>
+        <StackPanel Orientation="Vertical" Margin="20, 60, 20, 0">
+            <TextBlock Text="Подать заявление" FontSize="40" Width="450" Height="50" HorizontalAlignment="Left" Margin="00, 30, 0, 0"/>
+
+
+            <DockPanel>
+                <Button x:Name="selectCert" HorizontalAlignment="Left" Content="Аттестат.pdf" Margin="0,30,0,0" FontSize="23" Foreground="#828282" Click="SelectCert_Click" Background="#F2F2F2" BorderThickness="0" Height="50" Width="400">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="cancelCert" Content="" Margin="0,30,0,0" FontSize="23" Foreground="#828282" Click="cancelCert_Click" Background="#F2F2F2" BorderThickness="0" Height="50" Width="50">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                                <Grid>
+                                    <Image Source="Assets/cancel.png" Width="35" Height="35" />
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                    <Image Source="Assets/notice.png" Width="16" Height="16" VerticalAlignment="Center"/>
+                    <TextBlock VerticalAlignment="Center" Text=" Файл должен состоять &#x0a;из двух страниц,&#x0a;по полному развороту на каждой!" Foreground="#2D2D44"/>
+                </StackPanel>
+
+                <DockPanel HorizontalAlignment="Right">
+                    <Button x:Name="selectNotice" HorizontalAlignment="Right" Margin="0,30,0,0" Content="Уведомление.pdf" FontSize="23" Foreground="#828282" Click="selectNotice_Click"  Background="#F2F2F2" BorderThickness="0" Height="50" Width="400" RenderTransformOrigin="0.5,0.5">
+                        <Button.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleY="0.228"/>
+                                <RotateTransform/>
+                                <TranslateTransform Y="0.796"/>
+                            </TransformGroup>
+                        </Button.RenderTransform>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="cancelNotice" Margin="0,30,20,0" FontSize="23" HorizontalAlignment="Right" Foreground="#828282" Click="cancelNotice_Click"  Background="#F2F2F2" BorderThickness="0" Height="50" Width="50">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                                    <Grid>
+                                        <Image Source="Assets/cancel.png" Width="35" Height="35" />
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </DockPanel>
+            </DockPanel>
+
+                <DockPanel>
+                <Button x:Name="selectSNILS" HorizontalAlignment="Left" Content="СНИЛС.pdf" Margin="0,20,0,0" FontSize="23" Foreground="#828282" Click="selectSNILS_Click"  Background="#F2F2F2" BorderThickness="0" Height="50" Width="400">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="cancelSNILS" Content="" Margin="0,20,0,0" FontSize="23" Foreground="#828282" Click="cancelSNILS_Click"  Background="#F2F2F2" BorderThickness="0" Height="50" Width="50">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                                <Grid>
+                                    <Image Source="Assets/cancel.png" Width="35" Height="35" />
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Border CornerRadius="10" BorderBrush="#F2F2F2" Width="450" BorderThickness="1" Background="#F2F2F2" Margin="0, 20, 20, 0" HorizontalAlignment="Right">
+                    <TextBox x:Name="usName" Tag="Имя" Style="{DynamicResource TextBoxStyle}" Background="#F2F2F2" Width="430" Height="50" FontSize="23" BorderBrush="Transparent" MaxLength="256" VerticalContentAlignment="Center"/>
+                </Border>
+            </DockPanel>
+
+            <DockPanel>
+                <Button x:Name="selectPassport" HorizontalAlignment="Left" Content="Паспорт.pdf" Margin="0,20,0,0" FontSize="23" Foreground="#828282" Click="selectPassport_Click"  Background="#F2F2F2" BorderThickness="0" Height="50" Width="400">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="cancelPassport" Content="" Margin="0,20,0,0" FontSize="23" Foreground="#828282" Click="cancelPassport_Click"  Background="#F2F2F2" BorderThickness="0" Height="50" Width="50">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                                <Grid>
+                                    <Image Source="Assets/cancel.png" Width="35" Height="35" />
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Border CornerRadius="10" BorderBrush="#F2F2F2" Width="450" BorderThickness="1" Background="#F2F2F2" Margin="0, 20, 20, 0" HorizontalAlignment="Right">
+                    <TextBox x:Name="usSur" Tag="Фамилия" Style="{DynamicResource TextBoxStyle}" Background="#F2F2F2" Width="430" Height="40" FontSize="23" BorderBrush="Transparent" MaxLength="256" VerticalContentAlignment="Center"/>
+                </Border>
+            </DockPanel>
+
+            <DockPanel>
+                <Button x:Name="selectPersAch" HorizontalAlignment="Left" Content="Достижения.pdf" Margin="0,20,0,0" FontSize="23" Foreground="#828282" Click="selectPersAch_Click"  Background="#F2F2F2" BorderThickness="0" Height="50" Width="400">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="cancelPersAch" Margin="0,20,0,0" FontSize="23" Foreground="#828282" Click="cancelPersAch_Click"  Background="#F2F2F2" BorderThickness="0" Height="50" Width="50">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                                <Grid>
+                                    <Image Source="Assets/cancel.png" Width="35" Height="35" />
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                    <Image Source="Assets/notice.png" Width="16" Height="16" VerticalAlignment="Center"/>
+                    <TextBlock VerticalAlignment="Center" Text=" Все достижения должны&#x0a;находить в одном файле!" Foreground="#2D2D44"/>
+                </StackPanel>
+                <Border CornerRadius="10" BorderBrush="#F2F2F2" Width="450" BorderThickness="1" Background="#F2F2F2" Margin="0, 20, 20, 0" HorizontalAlignment="Right">
+                    <TextBox x:Name="usMiddle" Tag="Отчество" Style="{DynamicResource TextBoxStyle}" Background="#F2F2F2" Width="430" Height="40" FontSize="23" BorderBrush="Transparent" MaxLength="256" VerticalContentAlignment="Center"/>
+                </Border>
+            </DockPanel>
+
+            <DockPanel>
+                <CheckBox x:Name="budgetChB" Content="Бюджет" Style="{StaticResource RoundCheckBoxStyle}" FontSize="20" />
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+                    <CheckBox x:Name="agreeChB" Content="Согласие на обработку персональных данных" Style="{StaticResource RoundCheckBoxStyle}" HorizontalAlignment="Right" Margin="0,10,135,0" FontSize="15"/>
+                    <Button Content="Отправить" Click="UploadFile_Click" HorizontalAlignment="Right" Margin="0,10,320,0" Height="50" Width="150" Background="#2D2D44" Foreground="White" FontSize="20"/>
+
+                </StackPanel>
+            </DockPanel>
+            <WebBrowser x:Name="pdfWebViewer" Height="50"></WebBrowser>
+        </StackPanel>
+        <Button x:Name="saveNotice" Click="saveNotice_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="auto" Content="Шаблон уведомления о наренеии обучаться" Margin="20,0,0,40" Background="Transparent" FontSize="25" Foreground="#828282"/>
+    </Grid>
+</Window>

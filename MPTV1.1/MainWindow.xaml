@@ -1,0 +1,29 @@
+﻿<Window x:Class="MPTV1._1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MPTV1._1"
+        mc:Ignorable="d"
+        Height="500" Width="800"
+        Background="#2D2D44"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        ContentRendered="Window_ContentRendered">
+
+    <Grid>
+        <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ProgressBar x:Name="progB" Value="0" Height="15" Width="270" IsIndeterminate="False" Background="#D9D9D9" Margin="0,0,30,0">
+                <ProgressBar.Foreground>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#7979A2" Offset="0" />
+                        <GradientStop Color="#7979A2" Offset="1" />
+                    </LinearGradientBrush>
+                </ProgressBar.Foreground>
+            </ProgressBar>
+            <TextBlock Text="0%" Foreground="White" FontSize="20" x:Name="prog" Height="25" Width="50"/>
+        </StackPanel>
+    </Grid>
+
+</Window>

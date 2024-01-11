@@ -1,0 +1,50 @@
+License:  Apitron PDF Rasterizer for .NET Commercial License 
+
+START OF LICENSE AGREEMENT    
+
+APITRON  SOFTWARE LICENSE AGREEMENT
+
+By accepting the terms of this document you enter into an agreement with APITRON  LTD.(“APITRON”), whose principal place of business is in Victoria,  Seychelles and therefore, for good and valuable consideration, the receipt and sufficiency of which is hereby acknowledged, APITRON and you agree as follows: 
+
+LICENSE :  Apitron PDF Rasterizer for .NET (“Apitron Software”)
+
+In exchange for the applicable initial fee and for the term described below, APITRON hereby grants to you, with respect to all copies of Apitron PDF Rasterizer for .NET in object code form, a nonexclusive and worldwide license to:
+
+(a) use the Apitron Software in connection to application(s) owned by you. You may redistribute the Apitron Software combined with your application to an unlimited number of end-user devices. The number of different branded apps is limited to 1(one), and if the Apitron Software is used in a containerized and/or virtualized environment such as but not limited to Docker and similar, the number of simultaneously run instances activated by one license MAY NOT exceed 10 disregarding the number and location of deployments. Shall these limits be exceeded, a special provisioning is required, please contact sales for a quote.
+
+(b) combine the Apitron Software with other software to form a combined product with added primary functionality in such a way that the functionality of the Apitron Software is secondary to the combined product (“Combined Product”); provided any portion of the Apitron Software so combined continues to be subject to the terms and conditions of this agreement.
+
+(c) brand, distribute, sublicense and support the Combined Product to third parties as your product, provided that (i) the Combined Product is an end-product and not a software development toolkit, software development environment, software as a service offering of any kind and does not directly or indirectly compete with the Apitron Software or any other product of APITRON, and  (ii) the Combined Product does not in any way expose the Application Product Interface of the Apitron Software, in which cases branding, distribution, and/or sublicensing is prohibited. 
+
+ACCEPTANCE. You acknowledge and confirm that you have been granted enough time to investigate and test whether the Apitron Software performs in accordance to your requirements.
+
+SUPPORT. As an integral part of your license, APITRON will, for the duration of your license, provide support services to you, which include development, support, maintenance and distribution of updates and upgrades. Support services will only be provided in connection to the most recent version of the APITRON Software.
+
+ACTIVATION. You understand and agree that APITRON will provide you with a mechanism to activate your license once. APITRON may allow additional activations, at its sole discretion. 
+
+TERM AND TERMINATION LICENSE. Unless stated otherwise in writing by APITRON, licenses hereunder, including support services, will automatically terminate in case the annual fee has not been fully paid upon thirty (30) days of the anniversary of the license. In such case you may no longer combine, brand, distribute, sublicense or use the APITRON Software in any other way. APITRON may revoke and terminate your license if you materially breach any provision of this agreement.
+
+OWNERSHIP. You agree that as between you and APITRON, APITRON is the sole and exclusive owner of all right, title and interest worldwide, including in countries where such rights have not yet been used, exercised or registered, in the Apitron Software and you will not directly or indirectly question, attack, contest or in any other manner impugn the value, validity or enforceability of Apitron Software or any other software from APITRON. You will not remove, alter, cover or obfuscate any patent or copyright notice or other proprietary or restrictive notice or legend placed or embedded by APITRON on Apitron’s Software.
+
+REVERSE ENGINEERING. You will refrain from any reverse engineering, disassembly, or any other attempt to obtain Apitron Software in source code or assembly code form.
+
+PAYMENT. You warrant and guarantee that the initial royalty fee, will be paid in full immediately and irrevocably upon receipt of APITRON’s invoice by email or any other way of communication. No royalties will be due for your use of Apitron Software for evaluation, demonstration or support purposes. 
+
+INDEMNIFICATION. You agree to indemnify APITRON and to undertake to defend and hold APITRON harmless from and against any and all claims, demands, causes of action, damages, liabilities, costs and expenses, including reasonable attorneys’ fees, arising from your activities under this agreement, including, but not limited to, any product liability claims or actions, or the unauthorized use of any trademark, copyright, patent, process or method. 
+
+DISCLAIMERS.  APITRON SPECIFICALLY DISCLAIMS ALL REPRESENTATIONS AND WARRANTIES, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT (WHETHER EXPRESS, IMPLIED, OR STATUTORY) REGARDING, RELATING TO, CONNECTED WITH OR ARISING OUT OF APITRON SOFTWARE.
+
+LIMITATIONS ON KINDS OF DAMAGES.  IN NO EVENT WILL EITHER PARTY BE LIABLE TO THE OTHER FOR ANY PUNITIVE, EXEMPLARY, INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES OF ANY KIND (INCLUDING LOSS OF PROFITS, LOSS OF USE, BUSINESS INTERRUPTION, LOSS OF DATA OR COSTS OF PROCUREMENT OF SUBSTITUTE GOODS, TECHNOLOGIES OR SERVICES OR COST OF COVER) IN CONNECTION WITH OR ARISING OUT OF THIS AGREEMENT, WHETHER ALLEGED AS A BREACH OF CONTRACT OR TORTIOUS CONDUCT, INCLUDING NEGLIGENCE, EVEN IF SUCH PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+LIMITATION ON AMOUNT OF DAMAGES.  EACH PARTY’S LIABILITY TO THE OTHER UNDER THIS AGREEMENT OR THE TERMINATION OF THIS AGREEMENT FOR DAMAGES OF ANY KIND, INCLUDING RESTITUTION, WILL NOT, IN ANY EVENT, EXCEED, IN THE AGGREGATE, THE FEES AND PAYMENTS PAID BY YOU.
+ 
+ASSIGNMENT. You may not assign, sublicense or otherwise transfer any rights under this agreement. 
+
+GOVERNING LAW AND JURISDICTION.  This agreement shall be governed by and construed in accordance with the laws of the Seychelles, without giving effect to the United Nations Convention on the Contracts for the International Sale of Goods.  With respect to any disputes arising out of this agreement, the parties hereby submit exclusively to the personal jurisdiction of the courts in Victoria,  Seychelles. The parties consent and agree that each such court is a convenient forum for, and has proper venue over, the resolution of all legal actions, proceedings and disputes arising out of or relating to this agreement. Notwithstanding the foregoing, APITRON may elect to enforce any of its rights hereunder in the local courts of your country. 
+
+* * *
+
+END OF LICENSE AGREEMENT
+
+If you have any questions please contact us at support@apitron.com
+

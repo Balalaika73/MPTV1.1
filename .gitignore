@@ -1,0 +1,12 @@
+# Игнорировать временные файлы
+bin/
+obj/
+
+# Игнорировать файлы Visual Studio
+.vs/
+*.user
+*.suo
+*.suo
+*.cache
+*.log
+*.vscode
