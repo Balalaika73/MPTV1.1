@@ -31,7 +31,7 @@ namespace MPTV1._1
         {
             InitializeComponent();
             this.Title = directionName;
-            apiClient = new ApiClient("https://localhost:7107/api");
+            apiClient = new ApiClient();
             Abiturients = new ObservableCollection<DisplayableAbiturient>();
             allAbiturients = new List<DisplayableAbiturient>();
             LoadApplyingAbiturients();

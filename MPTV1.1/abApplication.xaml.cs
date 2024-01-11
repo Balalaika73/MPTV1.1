@@ -44,7 +44,7 @@ namespace MPTV1._1
         public abApplication(string selectedDirection)
         {
             InitializeComponent();
-            apiClient = new ApiClient("https://localhost:7107/api");
+            apiClient = new ApiClient();
             Loaded += Window_Loaded;
             this.selectedDirection = selectedDirection;
             WindowState = WindowState.Maximized;

@@ -34,7 +34,7 @@ namespace MPTV1._1
             InitializeComponent();
             this.stateNumb = stateNumb;
             this.directionName = directionName;
-            apiClient = new ApiClient("https://localhost:7107/api");
+            apiClient = new ApiClient();
             WindowState = WindowState.Maximized;
             WindowStyle = WindowStyle.None;
             pdfWebViewer.Navigate(new Uri("about:blank"));

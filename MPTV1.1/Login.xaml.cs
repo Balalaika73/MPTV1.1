@@ -33,7 +33,7 @@ namespace MPTV1._1
             InitializeComponent();
             WindowState = WindowState.Maximized;
             WindowStyle = WindowStyle.None;
-            apiClient = new ApiClient("https://192.168.100.4:7107/api");
+            apiClient = new ApiClient();
         }
 
         private void Exite_Click(object sender, RoutedEventArgs e)

@@ -41,7 +41,7 @@ namespace MPTV1._1
         {
             InitializeComponent();
             DataContext = this;
-            apiClient = new ApiClient("https://localhost:7107/api");
+            apiClient = new ApiClient();
             Loaded += Window_Loaded;
             WindowState = WindowState.Maximized;
             WindowStyle = WindowStyle.None;
